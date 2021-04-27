@@ -1,4 +1,8 @@
 // System.set('app:react', window.React)
-System.import('test').then(m => {
-  ReactDOM.render(React.createElement(m.default, null, null), document.getElementById('root'))
+Promise.all([
+  System.import('react'),
+  System.import('react-dom'),
+  System.import('test')
+]).then(([React, ReactDOM, Test]) => {
+  ReactDOM.render(React.createElement(Test.default, null, null), document.getElementById('root'))
 })
